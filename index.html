@@ -4,8 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
 </head>
+
 <body>
-    
+    <nav class="navbar navbar-light bg-light">
+        <a href="/" class="navbar-brand">
+            Product App
+        </a>
+    </nav>
+
+    <div class="container">
+        <div id="app" class="row pt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add a product</h4>
+                    </div>
+
+                    <form id="product-form" class="card-body">
+                        <div class="form-group">
+                            <label> Product name</label>
+
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Product cost per piece</label>
+
+                            <input type="text" class="form-control" id="price" step="0.01" placeholder="Price">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Product quantity</label>
+
+                            <input type="text" class="form-control" id="quantity" placeholder="Quantity">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Product date</label>
+
+                            <input type="text" class="form-control" id="year" placeholder="">
+                        </div>
+
+                        <input type="submit" value="Save" class="btn btn-primary btn-block"></input>
+                    </form>
+                </div>
+            </div>
+            <div id="product-list" class="col-md-8"></div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="script.js">
 </body>
+
 </html>
