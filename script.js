@@ -4,11 +4,12 @@ class Product {
         this.price = price;
         this.quantity = quantity;
         this.date = date;
+        
     }
 }
 
-class UI {
-    showMessage (message, cssClass) {
+class UI{
+    showMessage(message, cssClass){
         const element = document.createElement('div');
         element.className = `alert alert-${cssClass} mt-2`;
         element.appendChild(document.createTextNode(message));
@@ -23,9 +24,22 @@ class UI {
     }
 }
 
-document.getElementById('product-form').addEventListener('submit',function(e){
-    e.preventDefault();
+document.getElementById('product-form').addEventListener('submit', function(e){
+    e.preventDefault(); /* Evita que el formulario reinicie su comportamiento de flashear */
     const ui = new UI();
-    ui.showMessage('Product added successfully', 'sucess');
-});
+    
+    const name = document.querySelector("#name").value;
+    const price = document.querySelector("#price").value;
+    const quantity = document.querySelector("#quantity").value;
+    const date = document.querySelector("#date").value;
 
+    if(name.length == 0 &&  price.length == 0 && quantity.length == 0 && date.length == 0){
+        ui.showMessage('Product isnt added', 'danger');
+    } else if(name.length == 0 ||  price.length == 0 || quantity.length == 0 || date.length == 0){
+        ui.showMessage('Precaution! Inputs is empty', 'warning');
+    } else {
+        ui.showMessage('Product added successfully', 'success');
+    }
+    
+    console.log(`Name: ${name}, price: ${price}, quantity: ${quantity}, date: ${date}`);
+});
